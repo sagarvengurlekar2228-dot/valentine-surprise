@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Forever ❤️</title>
+    <style>
+        :root {
+            --primary-pink: #ff4d6d;
+            --soft-bg: #fff0f3;
+            --text-dark: #590d22;
+        }
+
+        body, html {
+            height: 100%; margin: 0; font-family: 'Georgia', serif;
+            overflow: hidden; background-color: var(--soft-bg);
+        }
+
+        #memorySection {
+            height: 100vh; width: 100vw;
+            display: flex; align-items: center;
+            background: #000; 
+            position: relative; overflow: hidden;
+        }
+
+        .photo-track {
+            display: flex; height: 100vh; 
+            width: 3200vw; 
+            animation: scrollBox 90s linear infinite;
+        }
+
+        .slide {
+            width: 100vw; height: 100vh; position: relative; flex-shrink: 0;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+
+        /* INCREASED BOX SIZE HERE */
+        .memory-box {
+            width: 92vw; /* Almost edge to edge */
+            max-height: 75vh; /* Much taller box */
+            object-fit: contain; 
+            border-radius: 12px;
+            border: 8px solid white;
+            box-shadow: 0 20px 50px rgba(255, 77, 109, 0.4);
+            background: #111;
+        }
+
+        .caption {
+            margin-top: 20px;
+            color: white;
+            font-size: 1.4rem; /* Slightly larger text */
+            font-weight: bold;
+            font-style: italic;
+            text-align: center;
+            width: 90%;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.9);
+        }
+
+        @keyframes scrollBox {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-1600vw); } 
+        }
+
+        /* Overlay Cards */
+        .overlay-center {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000; background: var(--soft-bg);
+        }
+
+        .card {
+            background: white; padding: 40px; border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(255, 77, 109, 0.2);
+            text-align: center; width: 85%; max-width: 400px;
+        }
+
+        #finalSection {
+            height: 100vh; width: 100vw;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        input {
+            padding: 12px; border: 2px solid var(--primary-pink);
+            border-radius: 50px; width: 200px; text-align: center;
+            margin-bottom: 20px; outline: none; letter-spacing: 5px; font-size: 1.2rem;
+        }
+
+        .btn-main {
+            background: var(--primary-pink); color: white; padding: 15px 35px;
+            border-radius: 50px; border: none; font-weight: bold; cursor: pointer;
+        }
+
+        .hidden { display: none !important; }
+        #noBtn { position: absolute; }
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="https://www.dropbox.com/scl/fi/bsezn4mbp2dud5d7fx5zn/Tum-Se-Hi-LOFI-Jab-We-Met-Kareena-Kapoor-Shahid-Kapoor-Mohit-Chauhan-Pritam-Viral-Lofi.mp3?rlkey=d2blsvulbmu2pi8ofrfcpdmv3&st=t4b1qjrq&dl=1" type="audio/mpeg">
+    </audio>
+
+    <div id="passwordOverlay" class="overlay-center">
+        <div class="card">
+            <h1 style="font-size: 3rem;">🔐</h1>
+            <p>Enter our secret code:</p>
+            <input type="password" id="passInput" placeholder="•••••••">
+            <br>
+            <button class="btn-main" onclick="verifyPassword()">Unlock ❤️</button>
+        </div>
+    </div>
+
+    <div id="proposalSection" class="overlay-center hidden">
+        <div class="card">
+            <h1 style="font-size: 3rem;">💝</h1>
+            <h2>Will you be my Valentine?</h2>
+            <div style="height: 100px; position: relative; margin-top: 20px;">
+                <button class="btn-main" onclick="showMemories()">YES!</button>
+                <button id="noBtn" onmouseover="moveButton()" class="btn-main" style="background:#8e9aaf;">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="memorySection" class="hidden">
+        <div class="photo-track">
+            <div class="slide"><img src="https://i.postimg.cc/9wVZfkkW/Snapchat-629552047.jpg" class="memory-box"><div class="caption">Where it all began... ❤️</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/8JLLNGtB/IMG-20250329-WA0008.jpg" class="memory-box"><div class="caption">Pehli nazar mein hi dil haar gaya.</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/Q9cchD0b/IMG-20250329-WA0013.jpg" class="memory-box"><div class="caption">Every smile of yours is my favorite view.</div></div>
+            <div class="slide"><video class="memory-box" autoplay loop muted playsinline><source src="https://www.dropbox.com/scl/fi/0uipmpwhrzvgk23tudyf4/VID-20250621-WA0014.mp4?rlkey=tavph6rnju139rd15qez12381&st=n6pmkf1e&dl=1" type="video/mp4"></video><div class="caption">That laugh? That's what I live for. 🎥</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/2bnnrY2T/IMG-20250621-WA0007.jpg" class="memory-box"><div class="caption">Making the ordinary, extraordinary.</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/xJLLnQt3/IMG-20250520-WA0001.jpg" class="memory-box"><div class="caption">Tum saath ho, toh har pal haseen hai.</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/WF00TVXX/IMG-20250712-WA0013.jpg" class="memory-box"><div class="caption">My favorite place in the world? Next to you.</div></div>
+            <div class="slide"><video class="memory-box" autoplay loop muted playsinline><source src="https://www.dropbox.com/scl/fi/4fa5gg4a7obvd4klx7s3d/VID-20250830-WA0053.mp4?rlkey=po4u9go04kyfpfx5uoofrvp73&st=jrl1gvgw&dl=1" type="video/mp4"></video><div class="caption">Bas yunhi hamesha saath rehna.</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/0M77Pvc3/IMG-20250802-WA0017.jpg" class="memory-box"><div class="caption">To the girl who changed my life.</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/DJ11nhxV/IMG-20250826-WA0048.jpg" class="memory-box"><div class="caption">Sukoon ka doosra naam... Tum.</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/9wVZfknn/IMG-20250905-WA0071.jpg" class="memory-box"><div class="caption">Captured moments, lifetime of love.</div></div>
+            <div class="slide"><video class="memory-box" autoplay loop muted playsinline><source src="https://www.dropbox.com/scl/fi/rn6kbi7jakl0f193xhexs/VID-20260101-WA0016.mp4?rlkey=c4m4xcgbnmijyzdze9f9e04bh&st=bctk9whc&dl=1" type="video/mp4"></video><div class="caption">A cinematic kind of love. ✨</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/kR9K5HHq/IMG-20251024-WA0046.jpg" class="memory-box"><div class="caption">Shayad isi ko 'Perfect' kehte hain.</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/K3FBYWWS/IMG-20251123-WA0009.jpg" class="memory-box"><div class="caption">Still falling for you, every single day.</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/N2Ym0nz3/IMG-20251227-WA0005.jpg" class="memory-box"><div class="caption">My today, my tomorrow, and my always.</div></div>
+            <div class="slide"><video class="memory-box" autoplay loop muted playsinline><source src="https://www.dropbox.com/scl/fi/u6fu6y9p1788jho16tiow/VID-20251217-WA0002.mp4?rlkey=3pmg6i8tdj7sy22lzh8hihsbh&st=wwvsttv5&dl=1" type="video/mp4"></video><div class="caption">The best is yet to come...</div></div>
+
+            <div class="slide"><img src="https://i.postimg.cc/9wVZfkkW/Snapchat-629552047.jpg" class="memory-box"><div class="caption">Where it all began... ❤️</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/8JLLNGtB/IMG-20250329-WA0008.jpg" class="memory-box"><div class="caption">Pehli nazar mein hi dil haar gaya.</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/Q9cchD0b/IMG-20250329-WA0013.jpg" class="memory-box"><div class="caption">Every smile of yours is my favorite view.</div></div>
+            <div class="slide"><video class="memory-box" autoplay loop muted playsinline><source src="https://www.dropbox.com/scl/fi/0uipmpwhrzvgk23tudyf4/VID-20250621-WA0014.mp4?rlkey=tavph6rnju139rd15qez12381&st=n6pmkf1e&dl=1" type="video/mp4"></video><div class="caption">That laugh? That's what I live for. 🎥</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/2bnnrY2T/IMG-20250621-WA0007.jpg" class="memory-box"><div class="caption">Making the ordinary, extraordinary.</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/xJLLnQt3/IMG-20250520-WA0001.jpg" class="memory-box"><div class="caption">Tum saath ho, toh har pal haseen hai.</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/WF00TVXX/IMG-20250712-WA0013.jpg" class="memory-box"><div class="caption">My favorite place in the world? Next to you.</div></div>
+            <div class="slide"><video class="memory-box" autoplay loop muted playsinline><source src="https://www.dropbox.com/scl/fi/4fa5gg4a7obvd4klx7s3d/VID-20250830-WA0053.mp4?rlkey=po4u9go04kyfpfx5uoofrvp73&st=jrl1gvgw&dl=1" type="video/mp4"></video><div class="caption">Bas yunhi hamesha saath rehna.</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/0M77Pvc3/IMG-20250802-WA0017.jpg" class="memory-box"><div class="caption">To the girl who changed my life.</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/DJ11nhxV/IMG-20250826-WA0048.jpg" class="memory-box"><div class="caption">Sukoon ka doosra naam... Tum.</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/9wVZfknn/IMG-20250905-WA0071.jpg" class="memory-box"><div class="caption">Captured moments, lifetime of love.</div></div>
+            <div class="slide"><video class="memory-box" autoplay loop muted playsinline><source src="https://www.dropbox.com/scl/fi/rn6kbi7jakl0f193xhexs/VID-20260101-WA0016.mp4?rlkey=c4m4xcgbnmijyzdze9f9e04bh&st=bctk9whc&dl=1" type="video/mp4"></video><div class="caption">A cinematic kind of love. ✨</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/kR9K5HHq/IMG-20251024-WA0046.jpg" class="memory-box"><div class="caption">Shayad isi ko 'Perfect' kehte hain.</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/K3FBYWWS/IMG-20251123-WA0009.jpg" class="memory-box"><div class="caption">Still falling for you, every single day.</div></div>
+            <div class="slide"><img src="https://i.postimg.cc/N2Ym0nz3/IMG-20251227-WA0005.jpg" class="memory-box"><div class="caption">My today, my tomorrow, and my always.</div></div>
+            <div class="slide"><video class="memory-box" autoplay loop muted playsinline><source src="https://www.dropbox.com/scl/fi/u6fu6y9p1788jho16tiow/VID-20251217-WA0002.mp4?rlkey=3pmg6i8tdj7sy22lzh8hihsbh&st=wwvsttv5&dl=1" type="video/mp4"></video><div class="caption">The best is yet to come...</div></div>
+        </div>
+        <button class="btn-main" style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 10;" onclick="showFinal()">Wait, there's more! 🏝️</button>
+    </div>
+
+    <div id="finalSection" class="hidden">
+        <h1>Happy Valentine's Day! 💍</h1>
+        <div style="background: rgba(0,0,0,0.5); padding: 30px; border-radius: 20px; border: 2px solid white; backdrop-filter: blur(5px);">
+            <h2 style="margin:0;">Next Stop: Alibaug 🌊🌴</h2>
+            <div id="countdown" style="font-size: 2rem; margin: 15px 0; color: #ff4d6d; font-weight: bold;"></div>
+            <p>Feb 20 - Feb 26, 2026</p>
+        </div>
+    </div>
+
+    <script>
+        function verifyPassword() {
+            if (document.getElementById("passInput").value === "2032025") {
+                document.getElementById("passwordOverlay").classList.add("hidden");
+                document.getElementById("proposalSection").classList.remove("hidden");
+            } else { alert("Incorrect password! ❤️"); }
+        }
+
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            btn.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+            btn.style.top = Math.random() * (window.innerHeight - 100) + 'px';
+        }
+
+        function showMemories() {
+            const music = document.getElementById('bgMusic');
+            music.play();
+            document.getElementById('proposalSection').classList.add('hidden');
+            document.getElementById('memorySection').classList.remove('hidden');
+        }
+
+        function showFinal() {
+            document.getElementById('memorySection').classList.add('hidden');
+            document.getElementById('finalSection').classList.remove('hidden');
+            startCountdown();
+        }
+
+        function startCountdown() {
+            const tripDate = new Date("Feb 20, 2026 00:00:00").getTime();
+            setInterval(() => {
+                const now = new Date().getTime();
+                const diff = tripDate - now;
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("countdown").innerHTML = d + "d " + h + "h " + m + "m left!";
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
